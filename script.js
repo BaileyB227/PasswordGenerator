@@ -1,6 +1,11 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+let upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+let lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+let numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+let special = ["!", "#", "$", "%", "&", "*", "+", "@", "^"]
+
 function generatePassword(){
   let pwlength = prompt("How many characters would you like in your password?");
 
@@ -25,16 +30,32 @@ function generatePassword(){
     specialC = confirm("Do you want special characters?");
   }
 
-  let upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+  let chosenValues = "";
   
-  let lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-
-  let numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-
-  let special = ["!", "#", "$", "%", "&", "*", "+", "@", "^"]
-
+  if (upperC){
+    chosenValues = [...chosenValues, ...upper];
+  }
   
+  if (lowerC){
+    chosenValues = [...chosenValues, ...lower];
+  }
+  
+  if (numericC){
+    chosenValues = [...chosenValues, ...numeric];
+  }
+  
+  if (specialC){
+    chosenValues = [...chosenValues, ...special];
+  }
+  
+  let choices = [];
 
+  for (var i = 0; i < pwlength; i++){
+    let final = chosenValues[Math.floor(Math.random() * chosenValues.length)];
+    choices.push(final)
+  }
+
+  return choices.join("");
 }
 
 // Write password to the #password input
