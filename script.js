@@ -15,12 +15,11 @@ function generatePassword(){
   }
   
   let upperC = confirm("Do you want uppercase letters?");
-  
   let lowerC = confirm("Do you want lowercase letters?");
-  
   let numericC = confirm("Do you want numbers?");
-  
   let specialC = confirm("Do you want special characters?");
+  
+  
 
   while (!upperC && !lowerC && !numericC && !specialC){
     alert("You must choose at least 1 criteria!");
